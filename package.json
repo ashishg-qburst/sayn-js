@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "ashishg-qburst",
   "license": "MIT",
+  "scripts": {
+    "start": "grunt serve",
+    "build": "grunt build"
+  },
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
