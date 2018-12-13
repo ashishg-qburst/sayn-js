@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/app.js': 'src/app.js'
+          'dist/app.js': 'src/**/*.js'
         }
       }
     },
@@ -28,18 +28,18 @@ module.exports = function(grunt) {
     browserify: {
       development: {
         src: [
-          "./src/*.js"
+          "./src/**/*.js"
         ],
         dest: './dist/app.js',
         options: {
           browserifyOptions: { debug: true },
-          transform: [["babelify"]]
+          transform: [["babelify", { sourceMaps: false }]]
         }
       },
 
       production: {
         src: [
-          "./src/*.js"
+          "./src/**/*.js"
         ],
         dest: './dist/app.js',
         options: {
@@ -52,5 +52,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['babel']);
+  grunt.registerTask('serve', ['watch']);
+  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('build', ['browserify:production']);
 };
