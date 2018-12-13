@@ -45,6 +45,15 @@ module.exports = function(grunt) {
         files: {
           'dist/app.css': 'src/styles/app.scss'
         }
+      },
+
+      production: {
+        options: {
+          sourcemap: 'none'
+        },
+        files: {
+          'dist/app.css': 'src/styles/app.scss'
+        }
       }
     },
 
@@ -77,8 +86,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('sassify', ['sass']);
-  grunt.registerTask('default', ['watch']);
-  grunt.registerTask('build', ['clean:dist', 'browserify:production']);
+  grunt.registerTask('default', ['serve']);
+  grunt.registerTask('sassify', ['sass:dist']);
+  grunt.registerTask('build', ['clean:dist', 'browserify:production', 'sass:production']);
   grunt.registerTask('serve', ['clean:dist', 'browserify:development', 'sassify', 'watch']);
 };
