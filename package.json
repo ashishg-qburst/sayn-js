@@ -1,5 +1,5 @@
 {
-  "name": "My New Web App",
+  "name": "es6-boiler",
   "version": "1.0.0",
   "description": "ES6 app boilerplate with live reload",
   "main": "index.js",
