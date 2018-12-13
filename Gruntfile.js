@@ -33,7 +33,7 @@ module.exports = function(grunt) {
         dest: './dist/app.js',
         options: {
           browserifyOptions: { debug: true },
-          transform: [["babelify", { sourceMaps: false }]]
+          transform: [["babelify"]]
         }
       },
 
