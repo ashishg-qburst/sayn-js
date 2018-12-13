@@ -2,6 +2,12 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+    clean: {
+      dist: {
+        src: ['dist/**/*'],
+      }
+    },
+
     babel: {
       options: {
         sourceMap: true,
@@ -15,14 +21,31 @@ module.exports = function(grunt) {
     },
 
     watch: {
+      options: {
+        spawn: false,
+        livereload: 2002
+      },
+
       scripts: {
         files: ['src/**/*.js'],
-        tasks: ['browserify:development'],
-        options: {
-          spawn: false,
-          livereload: 2002,
-        },
+        tasks: ['browserify:development']
       },
+
+      css: {
+        files: ['src/**/*.scss'],
+        tasks: ['sassify']
+      }
+    },
+
+    sass: {
+      dist: {
+        options: {
+          style: 'expanded'
+        },
+        files: {
+          'dist/app.css': 'src/styles/app.scss'
+        }
+      }
     },
 
     browserify: {
@@ -50,9 +73,12 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('serve', ['watch']);
+  grunt.registerTask('sassify', ['sass']);
   grunt.registerTask('default', ['watch']);
-  grunt.registerTask('build', ['browserify:production']);
+  grunt.registerTask('build', ['clean:dist', 'browserify:production']);
+  grunt.registerTask('serve', ['clean:dist', 'browserify:development', 'sassify', 'watch']);
 };
