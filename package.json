@@ -1,7 +1,7 @@
 {
   "name": "sayn-js",
   "version": "1.0.1",
-  "description": "Vanilla ES6 app boilerplate with live reload and SASS",
+  "description": "Vanilla ES6 app boilerplate with livereload and SASS",
   "author": "ashishg-qburst",
   "license": "MIT",
   "scripts": {
