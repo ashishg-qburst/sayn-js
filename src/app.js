@@ -1,5 +1,5 @@
 export default class Greeter {
-  greet() {
-    console.log('Hello World!');
+  greet(user) {
+    console.log(`Hello, ${user}!`);
   }
 }
