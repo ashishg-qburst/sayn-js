@@ -1,11 +1,16 @@
 .runner {
+  margin: 0 auto;
+  max-width: 640px;
+  margin-top: 60px;
+
   .runner-title {
     font-size: 36px;
     font-weight: 700;
   }
 
   .runner-subtitle {
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 400;
     font-style: italic;
   }
 }
