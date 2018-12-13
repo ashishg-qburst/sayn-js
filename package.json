@@ -1,8 +1,7 @@
 {
-  "name": "es6-boiler",
-  "version": "1.0.0",
-  "description": "ES6 app boilerplate with live reload",
-  "main": "index.js",
+  "name": "sayn-js",
+  "version": "1.0.1",
+  "description": "Vanilla ES6 app boilerplate with live reload and SASS",
   "author": "ashishg-qburst",
   "license": "MIT",
   "scripts": {
